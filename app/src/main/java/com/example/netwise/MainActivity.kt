@@ -8,7 +8,7 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz)
+        setContentView(R.layout.activity_result)
 
         // Get the theme toggle button
         val themeToggle = findViewById<ToggleButton>(R.id.themeToggle)

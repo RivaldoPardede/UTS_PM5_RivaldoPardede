@@ -1,20 +1,18 @@
 package com.example.netwise
 
+import BaseActivity
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.widget.ToggleButton
 
-class Result : AppCompatActivity() {
+class Result : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_result)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        // Get the theme toggle button
+        val themeToggle = findViewById<ToggleButton>(R.id.themeToggle)
+
+        // Call the setupThemeToggle with the toggle button reference
+        setupThemeToggle(themeToggle)
     }
 }

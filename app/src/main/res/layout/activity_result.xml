@@ -67,7 +67,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
         app:cardElevation="10dp"
-        app:cardCornerRadius="5dp">
+        app:cardCornerRadius="5dp"
+        style="@style/Theme.NetWise.ScoreCard">
         
         <LinearLayout
             android:id="@+id/score_layout"
@@ -104,7 +105,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="30dp"
         app:cardElevation="10dp"
-        app:cardCornerRadius="5dp">
+        app:cardCornerRadius="5dp"
+        style="@style/Theme.NetWise.ScoreCard">
 
         <TextView
             android:id="@+id/final_message"

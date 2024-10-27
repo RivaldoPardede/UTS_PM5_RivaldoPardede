@@ -21,4 +21,8 @@
         <item name="backgroundTint">@color/radioBtn_bg</item>
         <item name="android:textColor">@color/font</item>
     </style>
+
+    <style name="Theme.NetWise.ScoreCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/radioBtn_bg</item>
+    </style>
 </resources>
