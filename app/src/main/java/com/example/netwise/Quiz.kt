@@ -18,6 +18,7 @@ class Quiz : BaseActivity() {
     private lateinit var option4Button: Button
     private lateinit var nextButton: Button
     private lateinit var previousButton: Button
+    private lateinit var exitButton: TextView
 
     private var currentQuestionIndex = 0
     private val questionList = QuestionsRepository.questionList
@@ -41,6 +42,7 @@ class Quiz : BaseActivity() {
         option4Button = findViewById(R.id.option_4)
         nextButton = findViewById(R.id.next_btn)
         previousButton = findViewById(R.id.previous_btn)
+        exitButton = findViewById(R.id.exit_btn)
 
         displayQuestion(currentQuestionIndex)
 
@@ -50,6 +52,13 @@ class Quiz : BaseActivity() {
         option2Button.setOnClickListener { handleOptionSelected(1) }
         option3Button.setOnClickListener { handleOptionSelected(2) }
         option4Button.setOnClickListener { handleOptionSelected(3) }
+
+        exitButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish() // End Quiz activity
+        }
     }
 
     private fun displayQuestion(index: Int) {
