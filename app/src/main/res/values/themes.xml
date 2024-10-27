@@ -12,4 +12,13 @@
     <style name="Theme.NetWise.Toggle">
         <item name="background">@drawable/toggle_button_icon</item>
     </style>
+
+    <style name="Theme.NetWise.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/inputField</item>
+    </style>
+
+    <style name="Theme.NetWise.RadioBtn" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="backgroundTint">@color/radioBtn_bg</item>
+        <item name="android:textColor">@color/font</item>
+    </style>
 </resources>

@@ -55,8 +55,7 @@
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeWidth="2dp"
         android:elevation="6dp"
-        android:translationZ="4dp"
-        android:theme="@style/Theme.NetWise.TextInput">
+        android:translationZ="4dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editUsername"
@@ -101,6 +100,7 @@
         app:boxStrokeColor="#131418"
         app:layout_constraintTop_toBottomOf="@id/startBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
