@@ -22,10 +22,13 @@ class Quiz : BaseActivity() {
     private var currentQuestionIndex = 0
     private val questionList = QuestionsRepository.questionList
     private var score = 0
+    private lateinit var playerName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
+
+        playerName = intent.getStringExtra("PLAYER_NAME") ?: "Player"
 
         val themeToggle = findViewById<ToggleButton>(R.id.themeToggle)
         setupThemeToggle(themeToggle)
@@ -94,6 +97,7 @@ class Quiz : BaseActivity() {
              val intent = Intent(this, Result::class.java)
              intent.putExtra("SCORE", score)
              intent.putExtra("TOTAL_QUESTIONS", questionList.size)
+             intent.putExtra("PLAYER_NAME", playerName)
              startActivity(intent)
             // finish()
         }
