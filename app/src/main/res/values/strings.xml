@@ -3,4 +3,9 @@
     <string name="usernameInput">Enter Your Username</string>
     <string name="startBtn">Start</string>
     <string name="iconDesc">icon</string>
+    <string name="quiz_header">Quiz</string>
+    <string name="quit_btn">Quit</string>
+    <string name="previous_btn">Previous</string>
+    <string name="next_btn">Next</string>
+    <string name="submit_btn">Submit</string>
 </resources>

@@ -4,6 +4,7 @@
     <color name="bg">#FFFFFFFF</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#29CF66</color>
+    <color name="red">#FF0000</color>
     <color name="font">#3A3A3E</color>
     <color name="inputField">#FFFFFFFF</color>
     <color name="inputBorder">#545454</color>
