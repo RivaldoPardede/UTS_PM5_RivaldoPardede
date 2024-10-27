@@ -8,6 +8,7 @@
     <color name="yellow">#EBB800</color>
     <color name="font">#3A3A3E</color>
     <color name="radioBtn_bg">#FFFFFFFF</color>
+    <color name="radioBtn_bg_selected">#6A778E</color>
     <color name="inputField">#FFFFFFFF</color>
     <color name="inputBorder">#545454</color>
     <color name="toggleBG">#FFFFFFFF</color>

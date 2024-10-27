@@ -1,15 +1,18 @@
 package com.example.netwise
 
-import BaseActivity
+import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 
-class Result : BaseActivity() {
+class Result : AppCompatActivity() {
     private lateinit var scoreTextView: TextView
     private lateinit var finalMessageTextView: TextView
     private lateinit var congratulationsTextView: TextView
+    private lateinit var themeToggle: ToggleButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +21,22 @@ class Result : BaseActivity() {
         val score = intent.getIntExtra("SCORE", 0)
         val totalQuestions = intent.getIntExtra("TOTAL_QUESTIONS", 10)
         val playerName = intent.getStringExtra("PLAYER_NAME") ?: "Player"
+
+        themeToggle = findViewById(R.id.themeToggle)
+
+        val sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE)
+        val isNightMode = sharedPreferences.getBoolean("night", false)
+        themeToggle.isChecked = isNightMode
+
+        applyThemeMode(isNightMode)
+
+        themeToggle.setOnCheckedChangeListener { _, isChecked ->
+            with(sharedPreferences.edit()) {
+                putBoolean("night", isChecked)
+                apply()
+            }
+            applyThemeMode(isChecked)
+        }
 
         scoreTextView = findViewById(R.id.score)
         finalMessageTextView = findViewById(R.id.final_message)
@@ -40,9 +59,47 @@ class Result : BaseActivity() {
                 finalMessageTextView.text = "Bow before the master! You’ve sliced through the network like a hot knife through butter, leaving the firewalls cowering in awe. Legends will be written, songs sung of this day: the day you showed the system who’s boss. Take a bow, oh mighty conqueror of the code – the network is yours!"
             }
         }
+    }
 
-        // Get the theme toggle button
-        val themeToggle = findViewById<ToggleButton>(R.id.themeToggle)
-        setupThemeToggle(themeToggle)
+    private fun applyThemeMode(isNightMode: Boolean) {
+        if (isNightMode) {
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
+        }
+    }
+
+    private fun setupThemeToggle(themeToggle: ToggleButton) {
+        // Get SharedPreferences to store the theme setting
+        val sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        // Set the initial state of the toggle button based on SharedPreferences
+        themeToggle.isChecked = sharedPreferences.getBoolean("night", false)
+
+        themeToggle.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                editor.putBoolean("night", true).apply() // Save preference
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                editor.putBoolean("night", false).apply() // Save preference
+            }
+            recreate() // Recreate activity for the theme change
+        }
+    }
+
+    private fun setThemeFromPreferences(themeToggle: ToggleButton) {
+        // Check the saved preference and set the theme accordingly
+        val sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE)
+        val nightMode = sharedPreferences.getBoolean("night", false)
+
+        if (nightMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            themeToggle.isChecked = true
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            themeToggle.isChecked = false
+        }
     }
 }

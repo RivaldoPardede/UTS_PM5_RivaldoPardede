@@ -6,4 +6,5 @@
     <color name="toggleBG">#20202A</color>
     <color name="inputBorder">#DFDFDF</color>
     <color name="radioBtn_bg">#3A424F</color>
+    <color name="radioBtn_bg_selected">#6A778E</color>
 </resources>

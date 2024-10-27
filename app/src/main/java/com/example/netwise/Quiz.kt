@@ -1,15 +1,19 @@
 package com.example.netwise
 
-import BaseActivity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CompoundButton
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import com.example.netwise.data.QuestionsRepository
 
-class Quiz : BaseActivity() {
+class Quiz : AppCompatActivity() {
     private lateinit var questionTextView: TextView
     private lateinit var questionNumTextView: TextView
     private lateinit var option1Button: Button
@@ -19,6 +23,7 @@ class Quiz : BaseActivity() {
     private lateinit var nextButton: Button
     private lateinit var previousButton: Button
     private lateinit var exitButton: TextView
+    private lateinit var themeToggle: ToggleButton
 
     private var currentQuestionIndex = 0
     private val questionList = QuestionsRepository.questionList
@@ -31,8 +36,21 @@ class Quiz : BaseActivity() {
 
         playerName = intent.getStringExtra("PLAYER_NAME") ?: "Player"
 
-        val themeToggle = findViewById<ToggleButton>(R.id.themeToggle)
-        setupThemeToggle(themeToggle)
+        themeToggle = findViewById(R.id.themeToggle)
+
+        val sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE)
+        val isNightMode = sharedPreferences.getBoolean("night", false)
+        themeToggle.isChecked = isNightMode
+
+        applyThemeMode(isNightMode)
+
+        themeToggle.setOnCheckedChangeListener { _, isChecked ->
+            with(sharedPreferences.edit()) {
+                putBoolean("night", isChecked)
+                apply()
+            }
+            applyThemeMode(isChecked)
+        }
 
         questionTextView = findViewById(R.id.question_text)
         questionNumTextView = findViewById(R.id.question_num)
@@ -57,7 +75,15 @@ class Quiz : BaseActivity() {
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
-            finish() // End Quiz activity
+            finish()
+        }
+    }
+
+    private fun applyThemeMode(isNightMode: Boolean) {
+        if (isNightMode) {
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
         }
     }
 
@@ -76,6 +102,7 @@ class Quiz : BaseActivity() {
     }
 
     private fun highlightSelectedOption(selectedIndex: Int?) {
+        val backgroundColor = ContextCompat.getColor(this, R.color.radioBtn_bg_selected)
         resetOptionButtons()
 
         selectedIndex?.let {
@@ -86,15 +113,17 @@ class Quiz : BaseActivity() {
                 3 -> option4Button
                 else -> null
             }
-            selectedButton?.setBackgroundColor(0xFFEBEBEB.toInt())
+            selectedButton?.setBackgroundColor(backgroundColor)
         }
     }
 
     private fun resetOptionButtons() {
-        option1Button.setBackgroundColor(0xFFFFFFFF.toInt())
-        option2Button.setBackgroundColor(0xFFFFFFFF.toInt())
-        option3Button.setBackgroundColor(0xFFFFFFFF.toInt())
-        option4Button.setBackgroundColor(0xFFFFFFFF.toInt())
+        val backgroundColor = ContextCompat.getColor(this, R.color.radioBtn_bg)
+
+        option1Button.setBackgroundColor(backgroundColor)
+        option2Button.setBackgroundColor(backgroundColor)
+        option3Button.setBackgroundColor(backgroundColor)
+        option4Button.setBackgroundColor(backgroundColor)
     }
 
     private fun goToNextQuestion() {
@@ -108,7 +137,6 @@ class Quiz : BaseActivity() {
              intent.putExtra("TOTAL_QUESTIONS", questionList.size)
              intent.putExtra("PLAYER_NAME", playerName)
              startActivity(intent)
-            // finish()
         }
     }
 
@@ -126,7 +154,7 @@ class Quiz : BaseActivity() {
         val correctAnswerIndex = selectedQuestion.correctAnswerIndex
         if (optionIndex == correctAnswerIndex && !selectedQuestion.isAnsweredCorrectly) {
             score++
-            selectedQuestion.isAnsweredCorrectly = true // Mark as answered correctly
+            selectedQuestion.isAnsweredCorrectly = true
         }
 
         highlightSelectedOption(optionIndex)

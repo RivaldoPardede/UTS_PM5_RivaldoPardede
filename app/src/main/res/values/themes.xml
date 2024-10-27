@@ -25,4 +25,9 @@
     <style name="Theme.NetWise.ScoreCard" parent="Widget.MaterialComponents.CardView">
         <item name="cardBackgroundColor">@color/radioBtn_bg</item>
     </style>
+
+    <style name="Theme.NetWise.RadioBtn.Selected" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="backgroundTint">@color/radioBtn_bg_selected</item>
+        <item name="android:textColor">@color/font</item>
+    </style>
 </resources>
