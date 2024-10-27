@@ -1,17 +1,14 @@
 package com.example.netwise
 
 import BaseActivity
-import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.ToggleButton
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz_page)
+        setContentView(R.layout.activity_quiz)
 
         // Get the theme toggle button
         val themeToggle = findViewById<ToggleButton>(R.id.themeToggle)

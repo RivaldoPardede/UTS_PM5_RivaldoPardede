@@ -8,4 +8,9 @@
     <string name="previous_btn">Previous</string>
     <string name="next_btn">Next</string>
     <string name="submit_btn">Submit</string>
+    <string name="result_header">Result</string>
+    <string name="final_message">
+        "Bow before the master! You’ve sliced through the network like a hot knife through butter, leaving the firewalls cowering in awe. Legends will be written, songs sung of this day: the day you showed the system who’s boss. Take a bow, oh mighty conqueror of the code – the network is yours!"
+    </string>
+    <string name="detail_result">Detail Result</string>
 </resources>
