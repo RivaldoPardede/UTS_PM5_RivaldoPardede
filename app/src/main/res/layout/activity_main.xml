@@ -44,6 +44,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="60dp"
+        style="@style/Theme.NetWise.TextInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/netwise_icon"
@@ -53,9 +54,9 @@
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
         app:boxStrokeWidth="2dp"
-        app:boxStrokeColor="@color/dark"
         android:elevation="6dp"
-        android:translationZ="4dp">
+        android:translationZ="4dp"
+        android:theme="@style/Theme.NetWise.TextInput">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editUsername"
@@ -77,7 +78,7 @@
         android:layout_marginTop="30dp"
         android:text="@string/startBtn"
         android:backgroundTint="@color/green"
-        android:textColor="@color/blackFont"
+        android:textColor="@color/black"
         android:fontFamily="@font/firacode_semibold"
         android:textSize="20sp"
         app:cornerRadius="10dp"
@@ -92,12 +93,12 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="70dp"
-        android:background="@drawable/toggle_button_background"
+        android:background="@drawable/toggle_button_icon"
         android:textOff=""
         android:textOn=""
         android:checked="false"
         app:boxStrokeWidth="2dp"
-        app:boxStrokeColor="@color/darkToggle"
+        app:boxStrokeColor="#131418"
         app:layout_constraintTop_toBottomOf="@id/startBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

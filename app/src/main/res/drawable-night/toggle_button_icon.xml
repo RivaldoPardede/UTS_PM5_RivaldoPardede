@@ -1,0 +1,12 @@
+<!-- res/drawable-night/toggle_button_dark.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Circle background -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/toggleBG" /> <!-- Background color for the circle -->
+        </shape>
+    </item>
+    <!-- Icon overlay -->
+    <item android:drawable="@mipmap/darkmode_icon_foreground"
+        android:left="10dp" android:right="10dp" android:top="10dp" android:bottom="10dp"/> <!-- Your moon icon -->
+</layer-list>

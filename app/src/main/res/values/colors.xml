@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dark">#131418</color>
+    <color name="black">#131418</color>
+    <color name="bg">#FFFFFFFF</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#29CF66</color>
-    <color name="yellow">#EBB800</color>
-    <color name="blackFont">#3A3A3E</color>
-    <color name="darkFont">#D7D6DC</color>
-    <color name="darkBgInput">#20202A</color>
-    <color name="darkToggle">#DBDBDB</color>
+    <color name="font">#3A3A3E</color>
+    <color name="inputField">#FFFFFFFF</color>
+    <color name="inputBorder">#545454</color>
+    <color name="toggleBG">#FFFFFFFF</color>
+
 </resources>

@@ -1,7 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.NetWise" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Theme.NetWise" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:colorBackground">@color/bg</item>
+    </style>
+
+    <style name="Theme.NetWise.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/inputField</item>
+        <item name="boxStrokeColor">@color/inputBorder</item>
+    </style>
+
+    <style name="Theme.NetWise.Toggle">
+        <item name="background">@drawable/toggle_button_icon</item>
     </style>
 </resources>
