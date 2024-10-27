@@ -35,7 +35,7 @@ class MainActivity : BaseActivity() {
         if (username.isEmpty()) {
             Toast.makeText(this, "Please enter your username first.", Toast.LENGTH_SHORT).show()
         } else {
-            val intent = Intent(this, Quiz::class.java)
+            val intent = Intent(this@MainActivity, Quiz::class.java)
             intent.putExtra("PLAYER_NAME", username)
             startActivity(intent)
         }

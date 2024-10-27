@@ -22,7 +22,7 @@ object QuestionsRepository {
                 "WPA2",
                 "ARP"
             ),
-            correctAnswerIndex = 3
+            correctAnswerIndex = 2
         ),
         Question (
             id = 3,
@@ -33,7 +33,7 @@ object QuestionsRepository {
                 "Man-In-The-Middle Attack",
                 "MAC Filtering"
             ),
-            correctAnswerIndex = 3
+            correctAnswerIndex = 2
         ),
         Question (
             id = 4,
@@ -44,7 +44,7 @@ object QuestionsRepository {
                 "Monitoring network traffic for analysis",
                 "Connecting to a Wi-Fi network"
             ),
-            correctAnswerIndex = 3
+            correctAnswerIndex = 2
         ),
         Question (
             id = 5,
@@ -55,7 +55,7 @@ object QuestionsRepository {
                 "Man-In-The-Middle Attack",
                 "ARP Spoofing"
             ),
-            correctAnswerIndex = 2
+            correctAnswerIndex = 1
         ),
         Question (
             id = 6,
@@ -66,7 +66,7 @@ object QuestionsRepository {
                 "Encrypting Wi-Fi connections",
                 "Establishing a secure VPN"
             ),
-            correctAnswerIndex = 1
+            correctAnswerIndex = 0
         ),
         Question (
             id = 7,
@@ -77,7 +77,7 @@ object QuestionsRepository {
                 "Perform a DNS spoofing attack",
                 "Change the router’s password"
             ),
-            correctAnswerIndex = 1
+            correctAnswerIndex = 0
         ),
         Question (
             id = 8,
@@ -88,7 +88,7 @@ object QuestionsRepository {
                 "DNS Spoofing",
                 "Evil Twin Attack"
             ),
-            correctAnswerIndex = 3
+            correctAnswerIndex = 2
         ),
         Question (
             id = 9,
@@ -99,7 +99,7 @@ object QuestionsRepository {
                 "Wi-Fi passwords only",
                 "Network IP addresses only"
             ),
-            correctAnswerIndex = 2
+            correctAnswerIndex = 1
         ),
         Question (
             id = 10,
@@ -110,7 +110,7 @@ object QuestionsRepository {
                 "Allow open access to the Wi-Fi network",
                 "Disable router firewall"
             ),
-            correctAnswerIndex = 2
+            correctAnswerIndex = 1
         ),
 
     )
