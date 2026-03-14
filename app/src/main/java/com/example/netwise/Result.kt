@@ -70,27 +70,24 @@ class Result : AppCompatActivity() {
     }
 
     private fun setupThemeToggle(themeToggle: ToggleButton) {
-        // Get SharedPreferences to store the theme setting
         val sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        // Set the initial state of the toggle button based on SharedPreferences
         themeToggle.isChecked = sharedPreferences.getBoolean("night", false)
 
         themeToggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                editor.putBoolean("night", true).apply() // Save preference
+                editor.putBoolean("night", true).apply()
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                editor.putBoolean("night", false).apply() // Save preference
+                editor.putBoolean("night", false).apply()
             }
-            recreate() // Recreate activity for the theme change
+            recreate()
         }
     }
 
     private fun setThemeFromPreferences(themeToggle: ToggleButton) {
-        // Check the saved preference and set the theme accordingly
         val sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE)
         val nightMode = sharedPreferences.getBoolean("night", false)
 
